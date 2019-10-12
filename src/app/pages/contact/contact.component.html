@@ -1,21 +1,54 @@
 <h1>Contact Page</h1>
 
 <form>
-  <div>
+  <div class="input-group">
+    Name:
     <label for="">
-      <input type="text" name="name" [(ngModel)]="formData.name" />
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="formData.name"
+        (keyup)="validateName()"
+        (blur)="validateName()"
+        #name="ngModel"
+        #nameInput
+      />
+
+      <div class="error" *ngIf="errors.name && name.touched">
+        {{ errors.name }}
+      </div>
     </label>
   </div>
 
-  <div>
+  <div class="input-group">
+    Email:
     <label for="email">
-      <input type="text" name="email" [(ngModel)]="formData.email" />
+      <input
+        type="text"
+        name="email"
+        [(ngModel)]="formData.email"
+        (keyup)="validateEmail()"
+        (blur)="validateEmail()"
+        #email="ngModel"
+      />
+      <div class="error" *ngIf="errors.email && email.touched">
+        {{ errors.email }}
+      </div>
     </label>
   </div>
 
-  <button (click)="submit()">Submit</button>
+  <button class="btn" [disabled]="!nameValid || !emailValid" (click)="submit()">
+    Submit
+  </button>
 </form>
 
 {{ formData.name | uppercase }}
 <br />
 {{ formData.email }}
+<br />
+<!-- {{ nameValid }} -->
+<br />
+{{ "touched:" + email.touched }}<br />
+{{ "untouched:" + email.untouched }}<br />
+{{ "pristine:" + email.pristine }}<br />
+{{ "dirty:" + email.dirty }}
