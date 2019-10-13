@@ -17,4 +17,22 @@ export class BackendService {
     // return Promise.resolve({});
     return this.http.post("/api/contact", data).toPromise();
   }
+
+  // represents post to /api/login or api/register or api/login
+
+  // if you want to mock success:
+  login(data) {
+    return Promise.resolve({
+      id: 1234,
+      username: data.username
+    });
+  }
+
+  register(data) {
+    return Promise.resolve();
+  }
+
+  logout() {
+    return Promise.resolve();
+  }
 }

@@ -9,6 +9,8 @@ import { HomeComponent } from "./pages/home/home.component";
 import { AboutComponent } from "./pages/about/about.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { NotFoundComponent } from "./pages/notFound/notFound.component";
+import { LoginComponent } from "./pages/login/login.component";
+
 import { HeaderComponent } from "./shared/header/header.component";
 
 @NgModule({
@@ -18,7 +20,8 @@ import { HeaderComponent } from "./shared/header/header.component";
     AboutComponent,
     ContactComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
